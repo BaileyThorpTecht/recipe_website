@@ -20,3 +20,15 @@ sub-pages for each higher page
 each sub-page has 3 recipes including images, name, author, and instructions/ingredients  
   
 recipe search function  
+
+
+---- progress report ----  
+20/3/24 week 7 day 3  
+I have finished following all 42 videos of the django tutorial by sean  
+I now have a website with essentially all of the functionality I need. Now I just need to expand it to fit the requirement  
+except for registration. that doesnt work  
+I still dont really understand how login/logout/create/delete works by connecting to the database, but I dont think i need to. Its all already handled by django.
+
+todo: make registration work then make it all fit the requirements
+add tags for category/subcategory to recipes. remember to add it to create and update and view
+more pages

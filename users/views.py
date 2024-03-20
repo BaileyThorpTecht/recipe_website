@@ -4,7 +4,6 @@ from django.contrib import messages
 from . import forms
 from django.contrib.auth.decorators import login_required
 
-#from django.contrib.auth import models
 # Create your views here.
 def register(request):
     if request.method == "POST":
@@ -15,21 +14,12 @@ def register(request):
             
             username = form.cleaned_data.get('username')
             messages.success(request, f"{username}, your account has been created.")
-            return redirect('recipes-login')
+            return redirect('recipe-login')
     else:
         form = forms.UserRegistrationForm()
     return render(request, 'users/register.html', {'form': form})
             
 @login_required()
 def profile(request):
-    #users = models.User.objects.all()
-    #context = {
-    #    "users": users
-    #}
-    
-    #return render(request, 'users/profile.html', context)
     return render(request, 'users/profile.html')
 
-
-
-#comments are me working ahead
