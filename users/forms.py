@@ -5,8 +5,6 @@ from django.contrib.auth.forms import UserCreationForm
 class UserRegistrationForm(UserCreationForm):
     email = forms.EmailField()
     
-    #def isvalid(self):
-    #    return True
     
     class Meta:
         model = User

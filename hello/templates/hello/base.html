@@ -9,23 +9,26 @@
     <title>Recipe Title</title>
     {% endif %}
     <link
-        href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.0/dist/journal/bootstrap.min.css"
-        rel="stylesheet"
-        crossorigin="anonymous"
-        />
+      href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.0/dist/journal/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+      />
+      <!--href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/journal/bootstrap.min.css"
+      this breaks the nav bar but fixes border-left on the landing-->
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
           {% load static %}
-          <img src="{% static 'images/burst.png'%}" alt="logo">
-          <a class="navbar-brand" href="{% url 'recipe-home' %}">Logo</a>
+          <a class="navbar-brand" href="{% url 'landing' %}">
+            <img src="{% static 'images/burst.png'%}" style="height:50px;" alt="logo">
+          </a> 
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'recipe-home' %}">Home</a>
+              <a class="nav-link active" href="{% url 'landing' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Recipes</a>
+              <a class="nav-link" href="{% url 'recipe-all' %}">Recipes</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="{% url 'recipe-create' %}">Create Recipe</a>
