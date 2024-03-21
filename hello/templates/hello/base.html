@@ -6,7 +6,7 @@
     {% if title %}
     <title>Recipe Title - {{title}}</title>
     {% else %}
-    <title>Recipe Title</title>
+    <title>McPlaceholder's Kitchen</title>
     {% endif %}
     <link
       href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.0/dist/journal/bootstrap.min.css"
@@ -28,7 +28,7 @@
               <a class="nav-link active" href="{% url 'landing' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'recipe-all' %}">Recipes</a>
+              <a class="nav-link active" href="{% url 'recipe-all' %}">Recipes</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="{% url 'recipe-create' %}">Create Recipe</a>

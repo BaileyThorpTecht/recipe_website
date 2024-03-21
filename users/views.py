@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 def register(request):
     if request.method == "POST":
         form = forms.UserRegistrationForm(request.POST)
-        if form.is_valid():
+        if form.isvalid():
             form.save()
 
             
