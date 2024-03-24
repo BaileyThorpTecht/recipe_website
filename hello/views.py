@@ -17,6 +17,23 @@ class FeedbackCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+class CategoryView(ListView):
+    model = models.Subcategory
+    template_name = 'hello/recipe_category.html'
+    context_object_name = 'subcategories'
+    
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['title'] = self.request.path.split("/")[2].title()
+        return context
+
+# def CategoryView(request):
+#     context = {
+#         'subcategories': models.Subcategory.objects.all(),
+#         'title': request.path.split("/")[2].title(),
+#     }
+#     return render(request, 'hello/recipe_category.html', context)
     
 class RecipeListView(ListView):
     model = models.Recipe
@@ -24,7 +41,7 @@ class RecipeListView(ListView):
     context_object_name = 'recipes'
 
 class RecipeDetailView(DetailView):
-    model = models.Recipe
+    model = models.Recipe    
     
 class RecipeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = models.Recipe

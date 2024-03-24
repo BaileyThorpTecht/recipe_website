@@ -33,7 +33,15 @@
             <li class="nav-item">
                 <a class="nav-link active" href="{% url 'recipe-create' %}">Create Recipe</a>
             </li>
-            
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'recipe-category' 'basic' %}">Basic</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'recipe-category' 'diet' %}">Basic</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'recipe-category' 'holiday' %}">Basic</a>
+            </li>
           </ul>
           <div class="navbar-nav">
             {% if user.is_authenticated %}
