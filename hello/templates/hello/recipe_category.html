@@ -1,15 +1,15 @@
 {% extends "hello/base.html" %} 
 
 {% block content %}
-<h1>{{cat.title}} Categories:</h1>
+<h1 class="text-capitalize">{{cat}} Categories:</h1>
 
 {% for subcat in subcategories %}
 {% if subcat.parent_category.title == cat.title  %}
 <div class="card my-4">
     <div class="card-body">
-        <h5 class="card-title">{{ subcat.title }}</h5>
-        <p>{{subcat.parent_category}}</p>
-        <a href="{% url 'recipe-subcategory' cat.title subcat %}" class="card-link">View Recipes</a>
+        <h5 class="card-title text-capitalize">{{ subcat }}</h5>
+        <p class="text-capitalize">{{subcat.parent_category}}</p>
+        <a href="{% url 'recipe-subcategory' cat subcat %}" class="card-link">View Recipes</a>
     </div>
 </div>
 {% endif %}

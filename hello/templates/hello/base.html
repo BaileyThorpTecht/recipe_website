@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width-device-width, initial-scale=1.0">
-    {% if title %}
-    <title>Recipe Title - {{title}}</title>
-    {% else %}
     <title>McPlaceholder's Kitchen</title>
-    {% endif %}
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.0/dist/journal/bootstrap.min.css"
       rel="stylesheet"
       crossorigin="anonymous"
-      />
-      <!--href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/journal/bootstrap.min.css"
-      this breaks the nav bar but fixes border-left on the landing-->
+    />
+    <!--href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/journal/bootstrap.min.css"
+    this breaks the nav bar but fixes border-left on the landing-->
+
+    <script src="https://kit.fontawesome.com/9232997719.js" crossorigin="anonymous"></script>
+
+    <style>
+      .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -28,14 +34,27 @@
               <a class="nav-link active" href="{% url 'landing' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'recipe-all' %}">Recipes</a>
+              <a class="nav-link active" href="{% url 'recipe-create' %}">Create Recipe</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="{% url 'recipe-create' %}">Create Recipe</a>
+            <div class="mx-2" style="height:auto; border:1px solid black;"></div>
+            
             {% for cat in categories %}
-            <li class="nav-item">
-              <a class="nav-link active" href="{% url 'recipe-category' cat.title %}">{{cat.title}}</a>
+            <li class="nav-item dropdown" >
+              <a class="nav-link active text-capitalize dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="{% url 'recipe-category' cat %}">{{cat}}</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {% for subcat in subcategories %}
+                {% if subcat.parent_category.title == cat.title%}
+                <a class="dropdown-item text-capitalize" href="{% url 'recipe-subcategory' cat subcat %}">{{ subcat }}</a>
+                {% endif %}
+                {% endfor %}
+              </div>
+            </li>
             {% endfor %}
+
+          
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'recipe-all' %}">All Recipes</a>
+          </li>
           </ul>
 
 

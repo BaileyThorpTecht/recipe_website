@@ -21,16 +21,14 @@ class Category(models.Model):
     title = models.CharField(max_length=100)
 
     def __str__(self):
-    #    return self.title
-        return self.title.lower().capitalize()
+        return self.title.lower()
 
 class Subcategory(models.Model):
     title = models.CharField(max_length=100)
     parent_category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
-    #    return self.title
-        return self.title.lower().capitalize()
+        return self.title.lower()
 
 class Recipe(models.Model):
 
