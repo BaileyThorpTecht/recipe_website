@@ -10,11 +10,7 @@ urlpatterns = [
     path("recipe/<int:pk>/update", views.RecipeUpdateView.as_view(), name="recipe-update"),
     path("recipe/<int:pk>/delete", views.RecipeDeleteView.as_view(), name="recipe-delete"),
     
-    path("recipe/<str:title>", views.CategoryView.as_view(), name="recipe-category"),
-    
-
-    
-    #path("recipe/<string:'cat'>", views.CategoryView.as_view(), name="recipe-category"),
-    #path("recipe/<string:'cat'>/<string:'subcat'>", views.Subcategory.as_view(), name="recipe-subcategory"),
-    
+    path("recipe/<a>", views.CategoryView.as_view(), name="recipe-category"),
+    path("recipe/<a>/<b>", views.SubcategoryView.as_view(), name="recipe-subcategory"),
+     
 ]

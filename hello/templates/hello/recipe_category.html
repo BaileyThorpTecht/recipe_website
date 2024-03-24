@@ -1,15 +1,15 @@
 {% extends "hello/base.html" %} 
 
 {% block content %}
-<h1>{{title}}</h1>
+<h1>{{cat.title}} Categories:</h1>
 
 {% for subcat in subcategories %}
-{% if subcat.parent_category.title == title  %}
+{% if subcat.parent_category.title == cat.title  %}
 <div class="card my-4">
     <div class="card-body">
         <h5 class="card-title">{{ subcat.title }}</h5>
-        <!--<a href="{ url 'recipe-subcategory' subcat.title }" class="card-link">View Recipe</a>-->
         <p>{{subcat.parent_category}}</p>
+        <a href="{% url 'recipe-subcategory' cat.title subcat %}" class="card-link">View Recipes</a>
     </div>
 </div>
 {% endif %}

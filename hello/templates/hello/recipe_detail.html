@@ -1,11 +1,10 @@
 {% extends "hello/base.html" %} 
 
 {% block content %}
-<h1>Recipe # {{ object.id }}</h1>
+<h1>{{ object.title }}</h1>
+<h2 class="card-subtitle mb-2 text-muted">{{ object.author }}</h2>
 <div class="card my-4">
     <div class="card-body">
-        <h5 class="card-title">{{ object.title }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ object.author }}</h6>
         <p class="card-text">{{ object.description }}</p>
         <h6 class="card-subtitle mb-2 text-muted">{{ object.created_at | date:"F d, Y" }}
     </div>

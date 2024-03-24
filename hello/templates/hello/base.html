@@ -32,17 +32,13 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="{% url 'recipe-create' %}">Create Recipe</a>
-            </li>
+            {% for cat in categories %}
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'recipe-category' 'basic' %}">Basic</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="{% url 'recipe-category' 'diet' %}">Basic</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="{% url 'recipe-category' 'holiday' %}">Basic</a>
-            </li>
+              <a class="nav-link active" href="{% url 'recipe-category' cat.title %}">{{cat.title}}</a>
+            {% endfor %}
           </ul>
+
+
           <div class="navbar-nav">
             {% if user.is_authenticated %}
             <a class="nav-item nav-link" href="{% url 'user-profile' %}">My Profile </a>

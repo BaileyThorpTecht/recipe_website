@@ -25,15 +25,18 @@ class CategoryView(ListView):
     
     def get_context_data(self, **kwargs):
         context =  super().get_context_data(**kwargs)
-        context['title'] = self.request.path.split("/")[2].title()
+        context['cat'] = self.request.path.split("/")[2]
         return context
 
-# def CategoryView(request):
-#     context = {
-#         'subcategories': models.Subcategory.objects.all(),
-#         'title': request.path.split("/")[2].title(),
-#     }
-#     return render(request, 'hello/recipe_category.html', context)
+class SubcategoryView(ListView):
+    model = models.Recipe
+    template_name = 'hello/recipe_subcategory.html'
+    context_object_name = 'recipes'
+    
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['subcat'] = self.request.path.split("/")[3]
+        return context
     
 class RecipeListView(ListView):
     model = models.Recipe
@@ -70,3 +73,8 @@ class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    
+class NavbarView(ListView):
+    model = models.Category
+    template_name = 'recipes/base.html'
+    context_object_name = 'categories'
