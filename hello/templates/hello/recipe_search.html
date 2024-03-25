@@ -1,10 +1,9 @@
 {% extends "hello/base.html" %} 
 
 {% block content %}
-<h1 class="text-capitalize">{{subcat}} Recipes:</h1>
+<h1 class="text-capitalize">Recipes containing search term</h1>
 
 {% for recipe in recipes %}
-{% if recipe.subcategory.title == subcat.title  %}
 <div class="card my-4">
     <div class="card-body">
         <h5 class="card-title text-capitalize">{{ recipe.title }}</h5>
@@ -14,7 +13,6 @@
         <a href="{% url 'recipe-detail' recipe.pk %}" class="card-link">View Recipe</a>
     </div>
 </div>
-{% endif %}
 {% endfor %}
 
 {% endblock content%}

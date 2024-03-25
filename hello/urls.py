@@ -9,7 +9,7 @@ urlpatterns = [
     path("recipe/create", views.RecipeCreateView.as_view(), name="recipe-create"),
     path("recipe/<int:pk>/update", views.RecipeUpdateView.as_view(), name="recipe-update"),
     path("recipe/<int:pk>/delete", views.RecipeDeleteView.as_view(), name="recipe-delete"),
-    
+    path("recipe/search", views.SearchView.as_view(), name="recipe-search"),
     path("recipe/<a>", views.CategoryView.as_view(), name="recipe-category"),
     path("recipe/<a>/<b>", views.SubcategoryView.as_view(), name="recipe-subcategory"),
      
