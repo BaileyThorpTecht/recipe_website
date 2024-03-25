@@ -6,6 +6,10 @@
 <div class="card my-4">
     <div class="card-body">
         <p class="card-text">{{ object.description }}</p>
+        <p class="card-text">{{ object.ingredients }}</p>
+        <p class="card-text">{{ object.instructions }}</p>
+        {% load static %}
+        <img style="height:100px; width:100px;"src="{{object.image.url}}">
         <h6 class="card-subtitle mb-2 text-muted">{{ object.created_at | date:"F d, Y" }}
     </div>
 </div>

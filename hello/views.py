@@ -51,7 +51,7 @@ class SearchView(ListView):
     
 class RecipeListView(ListView):
     model = models.Recipe
-    template_name = 'hello/recipe-all.html'
+    template_name = 'hello/recipe_all.html'
     context_object_name = 'recipes'
 
 class RecipeDetailView(DetailView):
@@ -67,7 +67,7 @@ class RecipeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = models.Recipe
-    fields = ['title', 'description', 'subcategory']
+    fields = ['title', 'description', 'ingredients', 'instructions', 'image', 'subcategory']
     
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -75,7 +75,7 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
 
 class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = models.Recipe
-    fields = ['title', 'description']
+    fields = ['title', 'description', 'ingredients', 'instructions', 'image', 'subcategory']
     
     def test_func(self):
         recipe = self.get_object()

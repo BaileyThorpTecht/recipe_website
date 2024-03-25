@@ -1,5 +1,7 @@
 from django.urls import path
 from hello import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path("", views.LandingView.as_view(), name="landing"),
@@ -13,4 +15,4 @@ urlpatterns = [
     path("recipe/<a>", views.CategoryView.as_view(), name="recipe-category"),
     path("recipe/<a>/<b>", views.SubcategoryView.as_view(), name="recipe-subcategory"),
      
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

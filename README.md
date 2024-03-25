@@ -17,6 +17,7 @@ django
 django-crispy-forms  
 django-bootstrap-v5
 crispy-bootstrap4  
+Pillow  
 
 
 
