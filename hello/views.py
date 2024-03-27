@@ -43,7 +43,12 @@ class SearchView(ListView):
     template_name = 'hello/recipe_search.html'
     context_object_name = 'recipes'
     
-    def get_queryset(self):  # new
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['subcat'] = self.request.GET.get("q")
+        return context
+    
+    def get_queryset(self):
         query = self.request.GET.get("q")
         return models.Recipe.objects.filter(title__icontains=query)
 
@@ -72,6 +77,12 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['header'] = "Create Recipe"
+        context['redirect'] = 'landing'
+        return context
 
 class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = models.Recipe
@@ -85,7 +96,9 @@ class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
     
-class NavbarView(ListView):
-    model = models.Category
-    template_name = 'recipes/base.html'
-    context_object_name = 'categories'
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['header'] = "Update Recipe"
+        context['redirect'] = 'recipe-detail'
+        context['update'] = True
+        return context
