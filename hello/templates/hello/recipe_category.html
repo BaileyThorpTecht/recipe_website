@@ -4,7 +4,7 @@
 <h1 class="text-capitalize">{{cat}} Categories:</h1>
 
 {% for subcat in subcategories %}
-{% if subcat.parent_category.title == cat.title  %}
+{% if subcat.parent_category.title.title == cat.title  %}
 <div class="card my-4">
     <div class="card-body">
         <h5 class="card-title text-capitalize">{{ subcat }}</h5>

@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: casualguy@gmail.com
+Date: Thu, 28 Mar 2024 00:01:21 -0000
+Message-ID: <171158408186.15008.5883410225472852391@DESKTOP-HEREVSG>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/reset/NQ/c4lo69-172c4c997db41575a1782ce37fdf9383/
+
+Your username, in case you’ve forgotten: casualguy
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------

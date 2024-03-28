@@ -4,7 +4,7 @@
 <h1 class="text-capitalize">{{subcat}} Recipes:</h1>
 
 {% for recipe in recipes %}
-{% if recipe.subcategory.title == subcat.title  %}
+{% if recipe.subcategory.title.title == subcat.title  %}
 <div class="card my-4">
     <div class="card-body">
         <div style="float:left;">
