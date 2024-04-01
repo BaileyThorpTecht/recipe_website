@@ -1,0 +1,53 @@
+{% extends "hello/base.html" %} 
+
+
+
+{% block content %}
+
+{% block header %}{% endblock %}
+
+<div class="container">
+    {% for recipe in recipes %}
+    {% if forloop.counter0|divisibleby:"2" %}
+    <div class="row">
+    {% endif %}
+        <div class="col-6 px-3">
+
+            <div class="card my-4">
+                <div class="card-body">
+            
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                                <img class = "img-responsive" width = "100%" src="{{recipe.image.url}}">
+                            </div>
+                            <div class="col-8">
+                                <h5 class="card-title text-capitalize">{{ recipe.title }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ recipe.author }}</h6>
+                                <p class="card-text">{{ recipe.description }}</p>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <h6 class="card-subtitle mb-2 text-muted">{{ recipe.updated_at|date:"F d, Y" }}</h6>
+                            <a class="btn btn-outline-primary" href="{% url 'recipe-detail' recipe.pk %}">View Recipe</a>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+
+        </div>
+    {% if not forloop.counter0|divisibleby:"2"%}
+    </div> <!--end row-->
+    {% endif %}
+    
+    {% if forloop.last%}
+        {% if forloop.counter0|divisibleby:"2" %}
+        </div>
+        {% endif %}
+    {% endif %}
+
+    {% endfor %}
+</div>
+
+{% endblock content%}

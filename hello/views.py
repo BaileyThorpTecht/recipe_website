@@ -45,7 +45,7 @@ class SearchView(ListView):
     
     def get_context_data(self, **kwargs):
         context =  super().get_context_data(**kwargs)
-        context['subcat'] = self.request.GET.get("q")
+        context['query'] = self.request.GET.get("q")
         return context
     
     def get_queryset(self):
