@@ -1,16 +1,36 @@
 {% extends "hello/base.html" %} 
 
 {% block content %}
-<h1>{{ object.title }}</h1>
-<h2 class="card-subtitle mb-2 text-muted">{{ object.author }}</h2>
+
 <div class="card my-4">
-    <div class="card-body">
-        <p class="card-text">{{ object.description }}</p>
-        <p class="card-text">{{ object.ingredients }}</p>
-        <p class="card-text">{{ object.instructions }}</p>
-        <img style="height:100px; width:100px;"src="{{object.image.url}}">
-        <h6 class="card-subtitle mb-2 text-muted">{{ object.created_at | date:"F d, Y" }}
-    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item container">
+            <div class="row">
+                <div class="col-4">
+                    <img class = "img-responsive" width ="100%" src="{{object.image.url}}">
+                </div>
+                <div class="col-8">
+                    <h1>{{ object.title }}</h1>
+                    {{ object.description|linebreaks }}
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <h3>Ingredients</h3>
+            {{ object.ingredients|linebreaks }}
+        </li>
+        <li class="list-group-item">
+            <h3>Instructions</h3>
+            {{ object.instructions|linebreaks }}
+
+            <h6 class="card-subtitle mb-2 mt-5 text-muted">Created by {{ object.author }}</h2>
+            <h6 class="card-subtitle mb-2 text-muted">{{ object.created_at | date:"F d, Y" }}</h6>
+        </li>
+    </ul>
+        
+        
+        
+    
 </div>
 {% if object.author == user or user.is_staff%}
 <a class="btn btn-outline-info" href="{% url 'recipe-update' object.id %}">Update</a>

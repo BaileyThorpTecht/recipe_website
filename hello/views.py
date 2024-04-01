@@ -9,6 +9,15 @@ class LandingView(ListView):
     model = models.Feedback
     template_name = 'hello/landing.html'
     context_object_name = 'feedback'
+    
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        
+        recipes = models.Recipe.objects.all()[:3]
+        views = ["151", "137", "94"]
+        context['recipesandviews'] = zip(recipes, views)
+
+        return context
 
 class FeedbackCreateView(LoginRequiredMixin, CreateView):
     model = models.Feedback

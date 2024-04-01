@@ -9,7 +9,7 @@
     <div class="card-body">
         <h5 class="card-title text-capitalize">{{ subcat }}</h5>
         <p class="text-capitalize">{{subcat.parent_category}}</p>
-        <a href="{% url 'recipe-subcategory' cat subcat %}" class="card-link">View Recipes</a>
+        <a class="btn btn-outline-primary" href="{% url 'recipe-subcategory' cat subcat %}">View Category</a>
     </div>
 </div>
 {% endif %}
