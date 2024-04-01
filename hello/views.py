@@ -46,6 +46,10 @@ class SubcategoryView(ListView):
         context =  super().get_context_data(**kwargs)
         context['subcat'] = self.request.path.split("/")[3]
         return context
+    
+    def get_queryset(self):
+        query = self.request.path.split("/")[3]
+        return models.Recipe.objects.filter(subcategory__title__icontains=query)
 
 class SearchView(ListView):
     model = models.Recipe
