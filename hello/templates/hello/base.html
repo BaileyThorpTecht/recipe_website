@@ -76,7 +76,7 @@
               
               {% for cat in categories %}
               <li class="nav-item dropdown" >
-                <a class="nav-link active text-capitalize dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="{% url 'recipe-category' cat %}">{{cat}}</a>
+                <a class="nav-link active text-capitalize dropdown-toggle" aria-expanded="false" href="{% url 'recipe-category' cat %}">{{cat}}</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   {% for subcat in subcategories %}
                   {% if subcat.parent_category.title == cat.title%}
@@ -144,7 +144,7 @@
               <i class="fa-brands fa-square-facebook mx-2"></i></a>
             <a href="https://www.instagram.com/baybaybayo/" target="_blank" style="color:rgb(230,230,230)">  
               <i class="fa-brands fa-instagram mx-2"></i></a>
-              <a href="#" style="color:rgb(230,230,230)">  
+              <a href="mailto:Baileythorp04@gmail.com" style="color:rgb(230,230,230)">  
                 <i class="fa-solid fa-envelope mx-2"></i></a>
             <a href="https://twitter.com/baybaynapalm" target="_blank" style="color:rgb(230,230,230)">
               <i class="fa-brands fa-x-twitter mx-2"></i></a>
