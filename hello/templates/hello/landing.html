@@ -5,9 +5,17 @@
 
 <!--hero video goes here-->
 <h2>Chefs Special</h2>
-<div class="bg-secondary my-4">
+<div class="container bg-secondary my-4">
+<div class="row">
+<div class="col text-center">
+    
     {% load static %}
-    <img src="{% static 'images/burst.png'%}" class="mx-auto d-block" alt="logo">
+    <video controls height="480">
+        <source src="static/videos/chef_special_short.mp4" type="video/mp4" class="ms-auto" alt="chef's speical">
+    </video>
+
+</div>
+</div>
 </div>
 
 <h2>Community Feedback</h2>
@@ -23,7 +31,7 @@
     </div>
     {% endfor %}
 </div>
-<a class="btn btn-outline-primary" href="{% url 'feedback-create' %}">Add Feedback</a>
+<a class="btn btn-outline-primary" href="{% url 'feedback-create' %}">Give Feedback</a>
 
 
 
