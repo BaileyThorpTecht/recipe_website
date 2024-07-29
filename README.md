@@ -1,7 +1,5 @@
 # recipe_website  
-# #                    # #  
 #----- DEPENDENCIES -----#  
-# #                    # #  
 
 Once you have cloned this repo, you must create a virtual enviroment and install the required libraries  
 
@@ -21,9 +19,7 @@ Pillow
 
 
 
-# #                           # #  
 #----- DESCRIPTION / NOTES -----#  
-# #                           # #  
 
 
 Learning django and making this website of recipes  
@@ -62,4 +58,4 @@ more pages
 
 
 
-No more progress reports. commits have brief updates and todos a kept externally
+No more progress reports. commits have brief updates and todos are kept externally
