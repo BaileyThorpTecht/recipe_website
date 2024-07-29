@@ -1,0 +1,40 @@
+{% extends "hello/base.html" %} 
+
+{% block content %}
+
+<div class="card my-4">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item container">
+            <div class="row">
+                <div class="col-4">
+                    <img class = "img-responsive" width ="100%" src="{{object.image.url}}">
+                </div>
+                <div class="col-8">
+                    <h1>{{ object.title }}</h1>
+                    {{ object.description|linebreaks }}
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <h3>Ingredients</h3>
+            {{ object.ingredients|linebreaks }}
+        </li>
+        <li class="list-group-item">
+            <h3>Instructions</h3>
+            {{ object.instructions|linebreaks }}
+
+            <h6 class="card-subtitle mb-2 mt-5 text-muted">Created by {{ object.author }}</h2>
+            <h6 class="card-subtitle mb-2 text-muted">{{ object.created_at | date:"F d, Y" }}</h6>
+        </li>
+    </ul>
+        
+        
+        
+    
+</div>
+{% if object.author == user or user.is_staff%}
+<a class="btn btn-outline-info" href="{% url 'recipe-update' object.id %}">Update</a>
+<a class="btn btn-outline-danger" href="{% url 'recipe-delete' object.id %}">Delete</a>
+{% endif %}
+
+{% endblock content %}

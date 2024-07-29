@@ -1,0 +1,22 @@
+{% extends "hello/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<div class="card mb-3" style="">
+    <h2 class="card-header">{{ user.username }}</h2>
+    <div class="card-body">
+        <p class="card-text">Email: {{ user.email }}</p>
+
+        
+        {% if user.is_staff == True or user.is_superuser == True%}
+        <p class="card-text">Permissions: Admin</p>
+        {% else %}
+        <p class="card-text">Permissions: Normal User</p>
+        {% endif %}
+    </div>
+  </div>
+
+{% endblock content %}

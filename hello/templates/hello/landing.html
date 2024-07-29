@@ -1,0 +1,70 @@
+{% extends "hello/base.html" %} 
+
+{% block content %}
+
+
+<h1 class="text-center mt-4">Chef's Special</h1>
+<h4 class="text-center mt-2">Classic Chesse Salami Avacado Sandwich</h4>
+<div class="container my-4">
+<div class="row">
+<div class="col text-center">
+    
+    {% load static %}
+    <video controls height="480px">
+        <source src="static/videos/chef_special_fast.mp4" type="video/mp4" class="ms-auto" alt="chef's speical">
+    </video>
+
+</div>
+</div>
+</div>
+<h1 class="text-center mt-4">Community Feedback</h1>
+
+<div class="overflow-auto my-4 border border-secondary rounded-left" style="height:400px;">
+    {% for reply in feedback %}
+    <div class="card border-primary m-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ reply.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ reply.author }}</h6>
+            <p class="card-text">{{ reply.description|linebreaks }}</p>
+            <h6 class="card-subtitle mb-2 text-muted">{{ reply.created_at|date:"F d, Y" }}</h6>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<a class="btn btn-outline-primary" href="{% url 'feedback-create' %}">Give Feedback</a>
+
+<h1 class="text-center mt-4">Trending Recipes</h1>
+
+<div class="container my-4">
+    <div class="row">
+    {% for recipe, views in recipesandviews %}
+    <div class="col-4 px-2">
+        <div class="card ">
+            <div class="card-header">
+                <h5>Views: {{ views }}</h5>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            <img class = "img-responsive" width = "100%" src="{{recipe.image.url}}">
+                        </div>
+                        <div class="col-8">
+                            <h5 class="card-title text-capitalize">{{ recipe.title }}</h5>
+                            <p class="card-text">{{ recipe.description }}</p>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <a class="btn btn-outline-primary" href="{% url 'recipe-detail' recipe.pk %}">View Recipe</a>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+
+
+{% endblock content%}
